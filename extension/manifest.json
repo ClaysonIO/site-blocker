@@ -3,6 +3,7 @@
   "name": "Site Blocker",
   "version": "1.0",
   "description": "Block access to user-defined websites",
+  "privacy_policy": "privacy.html",
   "permissions": ["storage", "webNavigation", "tabs"],
   "action": {
     "default_popup": "popup.html",
@@ -22,7 +23,7 @@
   },
   "web_accessible_resources": [
     {
-      "resources": ["not-allowed.html"],
+      "resources": ["not-allowed.html", "privacy.html"],
       "matches": ["<all_urls>"]
     }
   ]
