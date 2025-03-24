@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Site - Site Blocker</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container form-container">
+    <h1>Edit Blocked Site</h1>
+    <form id="edit-site-form">
+      <div class="form-group">
+        <label for="domain">Domain Name:</label>
+        <input type="text" id="domain" name="domain" placeholder="e.g., facebook.com" required>
+        <small>Enter domain without http:// or www. (e.g., facebook.com)</small>
+      </div>
+      
+      <div class="form-group">
+        <label>Time Range:</label>
+        <div class="time-range-container">
+          <div class="time-range-toggle">
+            <input type="checkbox" id="time-range-toggle" name="time-range-toggle">
+            <label for="time-range-toggle">Set specific time range</label>
+          </div>
+          
+          <div id="time-range-inputs" class="hidden">
+            <div class="time-inputs">
+              <div class="time-input">
+                <label for="start-hour">From:</label>
+                <select id="start-hour" name="start-hour" disabled>
+                  <option value="0">12:00 AM</option>
+                  <option value="1">1:00 AM</option>
+                  <option value="2">2:00 AM</option>
+                  <option value="3">3:00 AM</option>
+                  <option value="4">4:00 AM</option>
+                  <option value="5">5:00 AM</option>
+                  <option value="6">6:00 AM</option>
+                  <option value="7">7:00 AM</option>
+                  <option value="8">8:00 AM</option>
+                  <option value="9">9:00 AM</option>
+                  <option value="10">10:00 AM</option>
+                  <option value="11">11:00 AM</option>
+                  <option value="12">12:00 PM</option>
+                  <option value="13">1:00 PM</option>
+                  <option value="14">2:00 PM</option>
+                  <option value="15">3:00 PM</option>
+                  <option value="16">4:00 PM</option>
+                  <option value="17">5:00 PM</option>
+                  <option value="18">6:00 PM</option>
+                  <option value="19">7:00 PM</option>
+                  <option value="20">8:00 PM</option>
+                  <option value="21">9:00 PM</option>
+                  <option value="22">10:00 PM</option>
+                  <option value="23">11:00 PM</option>
+                </select>
+              </div>
+              
+              <div class="time-input">
+                <label for="end-hour">To:</label>
+                <select id="end-hour" name="end-hour" disabled>
+                  <option value="0">12:00 AM</option>
+                  <option value="1">1:00 AM</option>
+                  <option value="2">2:00 AM</option>
+                  <option value="3">3:00 AM</option>
+                  <option value="4">4:00 AM</option>
+                  <option value="5">5:00 AM</option>
+                  <option value="6">6:00 AM</option>
+                  <option value="7">7:00 AM</option>
+                  <option value="8">8:00 AM</option>
+                  <option value="9">9:00 AM</option>
+                  <option value="10">10:00 AM</option>
+                  <option value="11">11:00 AM</option>
+                  <option value="12">12:00 PM</option>
+                  <option value="13">1:00 PM</option>
+                  <option value="14">2:00 PM</option>
+                  <option value="15">3:00 PM</option>
+                  <option value="16">4:00 PM</option>
+                  <option value="17">5:00 PM</option>
+                  <option value="18">6:00 PM</option>
+                  <option value="19">7:00 PM</option>
+                  <option value="20">8:00 PM</option>
+                  <option value="21">9:00 PM</option>
+                  <option value="22">10:00 PM</option>
+                  <option value="23">11:00 PM</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <div class="checkbox-container">
+          <input type="checkbox" id="enabled" name="enabled">
+          <label for="enabled">Enabled</label>
+        </div>
+      </div>
+      
+      <div class="button-group">
+        <button type="button" id="delete-btn" class="danger-btn">Delete</button>
+        <button type="button" id="cancel-btn" class="secondary-btn">Cancel</button>
+        <button type="submit" id="save-btn" class="primary-btn">Save</button>
+      </div>
+    </form>
+  </div>
+  <script src="edit.js"></script>
+</body>
+</html>

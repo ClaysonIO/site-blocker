@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Blocker - Chrome Extension</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin: 30px 0 15px;
+            color: #2c3e50;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        ul {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        /* Card Styles */
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        /* Button Styles */
+        .button-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            font-weight: bold;
+        }
+
+        .primary-btn {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .primary-btn:hover {
+            background-color: #2980b9;
+        }
+
+        .secondary-btn {
+            background-color: #95a5a6;
+            color: white;
+        }
+
+        .secondary-btn:hover {
+            background-color: #7f8c8d;
+        }
+
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Icon Styles */
+        .icon-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .icon {
+            width: 128px;
+            height: 128px;
+        }
+
+        /* Coming Soon Badge */
+        .coming-soon {
+            display: inline-block;
+            background-color: #f39c12;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 14px;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon-container">
+            <img src="./extension/images/icon128.png" alt="Site Blocker Icon" class="icon">
+        </div>
+        
+        <h1>Site Blocker Chrome Extension</h1>
+        
+        <div class="card">
+            <h2>About</h2>
+            <p>Site Blocker is a Chrome extension that helps you stay focused by blocking access to websites that you find distracting. Simply add domains to your personal block list, and the extension will prevent you from navigating to those sites.</p>
+            
+            <h2>Key Features</h2>
+            <ul>
+                <li>Block specific domains from being accessed</li>
+                <li>Set optional time ranges for when sites should be blocked</li>
+                <li>Enable/disable blocking for specific sites</li>
+                <li>User-friendly interface for managing blocked sites</li>
+                <li>Customizable blocking page with visual feedback</li>
+            </ul>
+        </div>
+        
+        <div class="button-container">
+            <a href="https://github.com/claysonio/site-blocker" class="button primary-btn">View on GitHub</a>
+            <a href="#" class="button secondary-btn">Chrome Web Store <span class="coming-soon">Coming Soon</span></a>
+        </div>
+        
+        <div class="card">
+            <h2>Installation (Development Mode)</h2>
+            <ol>
+                <li>Clone or download the repository from <a href="https://github.com/claysonio/site-blocker">GitHub</a></li>
+                <li>Open Chrome and navigate to <code>chrome://extensions/</code></li>
+                <li>Enable "Developer mode" using the toggle in the top-right corner</li>
+                <li>Click "Load unpacked" and select the directory containing this extension</li>
+                <li>Generate the icon files using the included icon generator</li>
+            </ol>
+        </div>
+        
+        <footer>
+            <p>This project is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a>.</p>
+            <p>&copy; 2025 <a href="https://github.com/claysonio/site-blocker">Site Blocker</a>. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

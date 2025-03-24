@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Site Blocker</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Site Blocker</h1>
+    <div class="table-container">
+      <table id="sites-table">
+        <thead>
+          <tr>
+            <th>Domain</th>
+            <th>Time Range</th>
+            <th>Enabled</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="sites-body">
+          <!-- Sites will be populated here -->
+        </tbody>
+      </table>
+    </div>
+    <div class="button-container">
+      <button id="add-site-btn" class="primary-btn">Add Site</button>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

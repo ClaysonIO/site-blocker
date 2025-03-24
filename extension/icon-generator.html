@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Site Blocker Icon Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+      background-color: #f8f8f8;
+    }
+    .icon-container {
+      margin: 20px;
+      display: inline-block;
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    canvas {
+      border: 1px solid #ddd;
+      margin-bottom: 10px;
+    }
+    .instructions {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: left;
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 30px;
+    }
+    button {
+      background-color: #3498db;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+    button:hover {
+      background-color: #2980b9;
+    }
+    h1 {
+      color: #2c3e50;
+    }
+    h2 {
+      color: #3498db;
+    }
+  </style>
+</head>
+<body>
+  <h1>Site Blocker Icon Generator</h1>
+  
+  <div class="instructions">
+    <h2>Instructions:</h2>
+    <ol>
+      <li>Below are three canvases that will generate icons in the sizes needed for the extension (16x16, 48x48, and 128x128).</li>
+      <li>Click the "Download Icon" button below each canvas to download the icon.</li>
+      <li>Save them in the "images" folder of your extension.</li>
+    </ol>
+  </div>
+  
+  <div class="icon-container">
+    <canvas id="icon16" width="16" height="16"></canvas>
+    <p>16x16 (icon16.png)</p>
+    <button onclick="downloadIcon('icon16', 16)">Download Icon</button>
+  </div>
+  
+  <div class="icon-container">
+    <canvas id="icon48" width="48" height="48"></canvas>
+    <p>48x48 (icon48.png)</p>
+    <button onclick="downloadIcon('icon48', 48)">Download Icon</button>
+  </div>
+  
+  <div class="icon-container">
+    <canvas id="icon128" width="128" height="128"></canvas>
+    <p>128x128 (icon128.png)</p>
+    <button onclick="downloadIcon('icon128', 128)">Download Icon</button>
+  </div>
+  
+  <script>
+    // Function to draw the icon on a canvas
+    function drawIcon(canvasId, size) {
+      const canvas = document.getElementById(canvasId);
+      const ctx = canvas.getContext('2d');
+      
+      // Background
+      ctx.fillStyle = '#e74c3c'; // Red background
+      ctx.fillRect(0, 0, size, size);
+      
+      // Border
+      ctx.strokeStyle = '#c0392b';
+      ctx.lineWidth = Math.max(1, size / 32);
+      ctx.strokeRect(0, 0, size, size);
+      
+      // Draw a "no" symbol (circle with diagonal line)
+      const centerX = size / 2;
+      const centerY = size / 2;
+      const radius = size * 0.4;
+      
+      // Circle
+      ctx.beginPath();
+      ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+      ctx.strokeStyle = 'white';
+      ctx.lineWidth = Math.max(1, size / 16);
+      ctx.stroke();
+      
+      // Diagonal line
+      ctx.beginPath();
+      ctx.moveTo(centerX - radius * 0.7, centerY - radius * 0.7);
+      ctx.lineTo(centerX + radius * 0.7, centerY + radius * 0.7);
+      ctx.strokeStyle = 'white';
+      ctx.lineWidth = Math.max(1, size / 16);
+      ctx.stroke();
+    }
+    
+    // Function to download the icon
+    function downloadIcon(canvasId, size) {
+      const canvas = document.getElementById(canvasId);
+      const dataURL = canvas.toDataURL('image/png');
+      
+      const a = document.createElement('a');
+      a.href = dataURL;
+      a.download = `icon${size}.png`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+    
+    // Draw icons of different sizes
+    drawIcon('icon16', 16);
+    drawIcon('icon48', 48);
+    drawIcon('icon128', 128);
+  </script>
+</body>
+</html>
