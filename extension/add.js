@@ -35,6 +35,17 @@ document.addEventListener('DOMContentLoaded', function() {
       enabled: document.getElementById('enabled').checked
     };
     
+    // Add alternate destination if provided
+    const alternateDestination = document.getElementById('alternate-destination').value.trim();
+    if (alternateDestination) {
+      // Ensure URL has proper format
+      let formattedUrl = alternateDestination;
+      if (!formattedUrl.startsWith('http://') && !formattedUrl.startsWith('https://')) {
+        formattedUrl = 'https://' + formattedUrl;
+      }
+      site.alternateDestination = formattedUrl;
+    }
+    
     // Add time range if specified
     if (timeRangeToggle.checked) {
       const startHour = parseInt(startHourSelect.value);

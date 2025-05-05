@@ -207,3 +207,11 @@ small {
   justify-content: space-between;
   margin-top: 30px;
 }
+
+/* Redirect Icon */
+.redirect-icon {
+  color: #3498db;
+  font-weight: bold;
+  cursor: help;
+  margin-left: 5px;
+}

@@ -43,6 +43,11 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('domain').value = site.domain;
     document.getElementById('enabled').checked = site.enabled;
     
+    // Set alternate destination if available
+    if (site.alternateDestination) {
+      document.getElementById('alternate-destination').value = site.alternateDestination;
+    }
+    
     // Set time range if available
     if (site.startHour !== undefined && site.endHour !== undefined) {
       timeRangeToggle.checked = true;
@@ -68,6 +73,19 @@ document.addEventListener('DOMContentLoaded', function() {
       // Update site object
       site.domain = domain;
       site.enabled = document.getElementById('enabled').checked;
+      
+      // Update alternate destination
+      const alternateDestination = document.getElementById('alternate-destination').value.trim();
+      if (alternateDestination) {
+        // Ensure URL has proper format
+        let formattedUrl = alternateDestination;
+        if (!formattedUrl.startsWith('http://') && !formattedUrl.startsWith('https://')) {
+          formattedUrl = 'https://' + formattedUrl;
+        }
+        site.alternateDestination = formattedUrl;
+      } else {
+        delete site.alternateDestination;
+      }
       
       // Update time range
       if (timeRangeToggle.checked) {

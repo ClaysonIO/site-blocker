@@ -37,6 +37,16 @@ function loadBlockedSites() {
       } else {
         timeCell.textContent = 'All day';
       }
+      
+      // Add alternate destination indicator if set
+      if (site.alternateDestination) {
+        const redirectIcon = document.createElement('span');
+        redirectIcon.className = 'redirect-icon';
+        redirectIcon.title = `Redirects to: ${site.alternateDestination}`;
+        redirectIcon.textContent = ' ↪';
+        timeCell.appendChild(redirectIcon);
+      }
+      
       row.appendChild(timeCell);
       
       // Enabled column

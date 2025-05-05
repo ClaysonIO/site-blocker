@@ -50,10 +50,25 @@ function checkIfShouldBlock(domain, tabId) {
   });
 }
 
-// Function to block a site by redirecting to a block page
+// Function to block a site by redirecting to a block page or alternate destination
 function blockSite(tabId, domain) {
-  // Redirect to the local block page
-  chrome.tabs.update(tabId, {
-    url: chrome.runtime.getURL('not-allowed.html')
+  // Get the site from storage to check for alternate destination
+  chrome.storage.sync.get('blockedSites', function(data) {
+    const blockedSites = data.blockedSites || [];
+    const site = blockedSites.find(site => {
+      return domain === site.domain || domain.endsWith('.' + site.domain);
+    });
+    
+    if (site && site.alternateDestination) {
+      // Redirect to the alternate destination if set
+      chrome.tabs.update(tabId, {
+        url: site.alternateDestination
+      });
+    } else {
+      // Redirect to the local block page
+      chrome.tabs.update(tabId, {
+        url: chrome.runtime.getURL('not-allowed.html')
+      });
+    }
   });
 }
